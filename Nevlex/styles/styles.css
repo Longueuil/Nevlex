@@ -155,8 +155,17 @@ fieldset fieldset legend {
    margin-left: 135px;
 }
 
-#nameinput, #movieinput, #seatinput, #dateinput, #timeinput {
+#nameinput, #movieinput, #dateinput, #timeinput {
    width: 400px;
+}
+fieldset #seatinput {
+   width: 299px;
+   display: inline-block;
+   margin-left: 103px;
+}
+fieldset #seatSelect {
+   display: inline-block;
+   margin-left: 0;
 }
 
 #paymentinfo label {

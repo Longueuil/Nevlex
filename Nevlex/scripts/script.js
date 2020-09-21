@@ -72,6 +72,21 @@ function previewOrder() {
 function confirmOrder() {
     alert("Your purchase is confirmed!");
 }
+function seatSelect() {
+        var myStorage = localStorage;
+    //myStorage.setItem('seat', String(2));
+    openSeatSelect();
+}
+/* open seat select in separate window */
+function openSeatSelect() {
+    var selectWindow = window.open("seatSelect.html", "newWindow",
+        "width=960,height=600");
+    selectWindow.focus();
+
+}
+function resultCloseParent(data) {
+    document.getElementById('seatinput').value = data;
+}
 
 function createEventListeners() {
 
@@ -99,10 +114,19 @@ function createEventListeners() {
     var confirm = document.getElementById("confirmBtn");
     if(confirm.addEventListener) {
         confirmBtn.addEventListener("click", confirmOrder, false);
-    } else if (form.attachEvent) {
+    } else if (confirmBtn.attachEvent) {
         confirm.attachEvent("onclick", confirmOrder,);
-    }    
+    }
+
+    var seatSelectBtn = document.getElementById("seatSelect");
+    if(seatSelectBtn.addEventListener) {
+        seatSelectBtn.addEventListener("click", seatSelect, false);
+    } else if (seatSelectBtn.attachEvent) {
+        seatSelectBtn.attachEvent("onclick", seatSelect,);
+    }
+
 }
+
 
 if (window.addEventListener) {
     window.addEventListener("load", createEventListeners, false);

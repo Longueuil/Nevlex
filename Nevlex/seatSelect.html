@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seat Select</title>
+</head>
+<body>
+<form>
+<input type="button" id="closeSeatSelect" value="Select"/>
+</form>
+<script>
+    function closeWin() {
+        window.opener.resultCloseParent('2');
+        window.close();
+    }
+    function createEventListeners() {
+    var closeSelectBtn = document.getElementById("closeSeatSelect");
+    if(closeSelectBtn.addEventListener) {
+        closeSelectBtn.addEventListener("click", closeWin, false);
+    } else if (closeSelectBtn.attachEvent) {
+        closeSelectBtn.attachEvent("onclick", closeWin);
+    }
+    }
+    if (window.addEventListener) {
+        window.addEventListener("load", createEventListeners, false);
+    } else if (window.attachEvent) {
+        window.attachEvent("onload", createEventListeners);
+    }
+</script>
+</body>
+</html>
