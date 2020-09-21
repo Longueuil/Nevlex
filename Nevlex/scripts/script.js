@@ -72,13 +72,9 @@ function previewOrder() {
 function confirmOrder() {
     alert("Your purchase is confirmed!");
 }
-function seatSelect() {
-        var myStorage = localStorage;
-    //myStorage.setItem('seat', String(2));
-    openSeatSelect();
-}
+
 /* open seat select in separate window */
-function openSeatSelect() {
+function seatSelect() {
     var params = "menubar=no,location=no,resizable=yes,scrollbars=no,status=yes,width=848,height=600";
     var openWindow = window.open("seatSelect.html", "newWindow", params);
     openWindow.focus();
