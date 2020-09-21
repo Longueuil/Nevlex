@@ -164,3 +164,7 @@ body {
   text-align: center;
   margin: 1% 0;
 }
+#chanheColorBrand{
+  color: red;
+  font-weight: bolder;
+}
