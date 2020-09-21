@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Seat Select</title>
+    <link rel="stylesheet" href="styles/map.css" />
+    <script src="scripts/jquery-3.5.1.min.js"></script>
+    <script src="scripts/jquery.maphilight.min.js"></script>
 </head>
 <body>
-<form>
-<input type="button" id="closeSeatSelect" value="Select"/>
-</form>
-<script>
-    function closeWin() {
-        window.opener.resultCloseParent('2');
-        window.close();
-    }
-    function createEventListeners() {
-    var closeSelectBtn = document.getElementById("closeSeatSelect");
-    if(closeSelectBtn.addEventListener) {
-        closeSelectBtn.addEventListener("click", closeWin, false);
-    } else if (closeSelectBtn.attachEvent) {
-        closeSelectBtn.attachEvent("onclick", closeWin);
-    }
-    }
-    if (window.addEventListener) {
-        window.addEventListener("load", createEventListeners, false);
-    } else if (window.attachEvent) {
-        window.attachEvent("onload", createEventListeners);
-    }
-</script>
+    <img src="Images/cinema-seating-plan.jpg" class="my-image-map" usemap="#image-map">
+
+    <map name="image-map">
+        <area ID="A01-1" target="" alt="Seat A01-1" title="Seat A01-1" href="" coords="162,423,184,444" shape="rect">
+        <area ID="A01-2" target="" alt="Seat A01-2" title="Seat A01-2" href="" coords="189,423,212,444" shape="rect">
+        <area ID="A01-3" target="" alt="Seat A01-3" title="Seat A01-3" href="" coords="216,423,238,444" shape="rect">
+        <area ID="A01-4" target="" alt="Seat A01-4" title="Seat A01-4" href="" coords="243,423,265,444" shape="rect">
+        <area ID="A01-5" target="" alt="Seat A01-5" title="Seat A01-5" href="" coords="295,423,317,444" shape="rect">
+        <area ID="A01-6" target="" alt="Seat A01-6" title="Seat A01-6" href="" coords="323,423,344,444" shape="rect">
+        <area ID="A01-7" target="" alt="Seat A01-7" title="Seat A01-7" href="" coords="349,423,371,444" shape="rect">
+        <area ID="A01-8" target="" alt="Seat A01-8" title="Seat A01-8" href="" coords="376,423,398,444" shape="rect">
+        <area ID="A01-9" target="" alt="Seat A01-9" title="Seat A01-9" href="" coords="402,423,424,444" shape="rect">
+        <area ID="B01-1" target="" alt="Seat B01-1" title="Seat B01-1" href="" coords="670,423,691,444" shape="rect">
+        <area ID="B01-2" target="" alt="Seat B01-2" title="Seat B01-2" href="" coords="642,423,664,444" shape="rect">
+        <area ID="B01-3" target="" alt="Seat B01-3" title="Seat B01-3" href="" coords="616,423,637,444" shape="rect">
+        <area ID="B01-4" target="" alt="Seat B01-4" title="Seat B01-4" href="" coords="589,423,610,444" shape="rect">
+        <area ID="B01-5" target="" alt="Seat B01-5" title="Seat B01-5" href="" coords="536,423,558,444" shape="rect">
+        <area ID="B01-6" target="" alt="Seat B01-6" title="Seat B01-6" href="" coords="509,423,531,444" shape="rect">
+        <area ID="B01-7" target="" alt="Seat B01-7" title="Seat B01-7" href="" coords="482,423,504,444" shape="rect">
+        <area ID="B01-8" target="" alt="Seat B01-8" title="Seat B01-8" href="" coords="455,423,478,444" shape="rect">
+        <area ID="B01-9" target="" alt="Seat B01-9" title="Seat B01-9" href="" coords="429,423,451,444" shape="rect">
+    </map>
+<script src="scripts/seatMapScript.js"></script>
 </body>
 </html>

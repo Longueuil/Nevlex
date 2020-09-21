@@ -79,9 +79,9 @@ function seatSelect() {
 }
 /* open seat select in separate window */
 function openSeatSelect() {
-    var selectWindow = window.open("seatSelect.html", "newWindow",
-        "width=960,height=600");
-    selectWindow.focus();
+    var params = "menubar=no,location=no,resizable=yes,scrollbars=no,status=yes,width=848,height=600";
+    var openWindow = window.open("seatSelect.html", "newWindow", params);
+    openWindow.focus();
 
 }
 function resultCloseParent(data) {
