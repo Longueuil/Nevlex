@@ -90,12 +90,12 @@ function resultCloseParent(data) {
 
 function createEventListeners() {
     
-    var tx = document.getElementById("taxinput");
-    if(tx.addEventListener) {
-        taxinput.addEventListener("click", processPaymentInfo, false);
-    } else if (form.attachEvent) {
-        tx.attachEvent("onclick", processPaymentInfo);
-    }
+    // var tx = document.getElementById("taxinput");
+    // if(tx.addEventListener) {
+    //     taxinput.addEventListener("click", processPaymentInfo, false);
+    // } else if (form.attachEvent) {
+    //     tx.attachEvent("onclick", processPaymentInfo);
+    // }
 
     var btn = document.getElementById("previewBtn");
     if(btn.addEventListener) {
