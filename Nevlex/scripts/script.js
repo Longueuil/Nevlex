@@ -1,7 +1,7 @@
 // THA-2/Payment Page
 // Author: Ihor Stashchuk
 
-"use strict";
+// "use strict";
 
 var movieInfo = new Object();
 var movieSummary = document.getElementById("deliverTo");
