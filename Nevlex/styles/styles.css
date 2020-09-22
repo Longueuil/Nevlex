@@ -272,3 +272,16 @@ h3 {
 #confirmBtn {
    border-radius: 10px;
 }
+
+#validatename, #validatemovie, #validateseat, #validatedate,
+#validatetime {
+   color: red;
+   font-weight: 500;
+   margin-left: 140px;
+}
+
+#validateccname, #validateccNum, #validateexpMo, #validateexpYr, #validatecvv {
+   color: red;
+   font-weight: 500;
+   display: inline;
+}

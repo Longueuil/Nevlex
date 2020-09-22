@@ -85,6 +85,8 @@ function resultCloseParent(data) {
     document.getElementById('seatinput').value = data;
 }
 
+/* ---------------EVENT LISTENERS--------------- */
+
 function createEventListeners() {
 
     var btn = document.getElementById("previewBtn");
@@ -122,110 +124,103 @@ if (window.addEventListener) {
     window.attachEvent("onload", createEventListeners);
 }
 
+/* ---------------FORM VALIDATIONS--------------- */
+
 function validateForm() {
 
     let selectedName = document.getElementById('nameinput');
+    let nameInputError = document.getElementById("validatename");
     let selectedMovie = document.getElementById('movieinput');
+    let movieSelectError = document.getElementById("validatemovie");
     let selectedSeat = document.getElementById('seatinput');
+    let seatSelectError = document.getElementById("validateseat");
     let selectedDate = document.getElementById('dateinput');
+    let dateSelectError = document.getElementById("validatedate");
     let selectedTime = document.getElementById('timeinput');
+    let timeSelectError = document.getElementById("validatetime");
     let selectedCardHolder = document.getElementById('ccnameinput');
+    let ccNameInputError = document.getElementById("validateccname");
     let selectedCardNumber = document.getElementById('ccNum');
+    let ccNumInputError = document.getElementById("validateccNum");
     let selectedExpMonth = document.getElementById('expMo');
+    let expMoSelectError = document.getElementById("validateexpMo");
     let selectedExpYear = document.getElementById('expYr');
+    let expYrSelectError = document.getElementById("validateexpYr");
     let selectedCVV = document.getElementById('cvv');
+    let cvvInputError = document.getElementById("validatecvv");
+    
 
     // validate name
     if (selectedName.value == "" || !isNaN(selectedName)) {
-        window.alert('Fill in Name with non-numeric values');
+        nameInputError.innerHTML = "<p><span>Fill in Name with non-numeric values</span></p>";
         selectedName.focus();
         return false;
     }
     else
     // validate movie
     if (selectedMovie.selectedIndex == 0) {
-        window.alert('Select Movie');
+        movieSelectError.innerHTML = "<p><span>Select Movie</span></p>";
         selectedMovie.focus();
         return false;
     }
     else 
     // validate seat
-    if (selectedSeat.value === "") {
-        window.alert("Select Seat");
+    if (selectedSeat.value == "") {
+        seatSelectError.innerHTML = "<p><span>Select Seat</span></p>";
         selectedSeat.focus();
         return false;
     }
     else
     // validate date
     if (selectedDate.value == "") {
-        window.alert("Select Date");
+        dateSelectError.innerHTML = "<p><span>Select Date</span></p>";
         selectedDate.focus();
         return false;
     }
     else
     // validate time
     if (selectedTime.value == "") {
-        window.alert("Please select Time");
+        timeSelectError.innerHTML = "<p><span>Select Time</span></p>";
         selectedTime.focus();
         return false;
     }
     else
     // validate card holder
     if (selectedCardHolder.value == "" || !isNaN(selectedCardHolder.value)) {
-        window.alert("Fill in Cardholder Name with non-numeric values");
+        ccNameInputError.innerHTML = "<p><span>Fill in Cardholder Name with non-numeric values</span></p>";
         selectedCardHolder.focus();
         return false;
     }
     else
     // validate card number
     if (selectedCardNumber.value == "") {
-        window.alert("Fill in Card Number");
+        ccNumInputError.innerHTML = "<p><span>Fill in Card Number</span></p>";
         selectedCardNumber.focus();
         return false;
     }
     else
     // validate expiration month
     if (selectedExpMonth.selectedIndex == 0) {
-        window.alert("Please select Expiration Month");
+        expMoSelectError.innerHTML = "<p><span>Select Expiration Month</span></p>";
         selectedExpMonth.focus();
         return false;
     }
     else
     // validate expiration year
     if (selectedExpYear.selectedIndex == 0) {
-        window.alert("Please select Expiration Year");
+        expYrSelectError.innerHTML = "<p><span>Select Expiration Year</span></p>";
         selectedExpYear.focus();
         return false;
     }
     else
     // validate CVV
     if (selectedCVV.value == "") {
-        window.alert("Fill in CVV code");
+        cvvInputError.innerHTML = "<p><span>Fill in CVV code</span></p>";
         selectedCVV.focus();
         return false;
     }
     else {
         return true;
     }
-
-    // let fields = [
-    // document.getElementById('nameinput'),
-    // document.getElementById('movieinput'),
-    // document.getElementById('seatinput'),
-    // document.getElementById('dateinput'),
-    // document.getElementById('timeinput'),
-    // document.getElementById('ccnameinput'),
-    // document.getElementById('ccNum'),
-    // document.getElementById('expMo'),
-    // document.getElementById('expYr'),
-    // document.getElementById('cvv'),
-    // ]
-    
-    // for (let i = 0; i < 10; i++) {
-    //     if (fields[i] == "" || fields[i] == 0) {
-    //         window.alert("Please fill in missing information");
-    //         fields[i].focus();
-    //     }
-    // }
     
 } // end function validateForm

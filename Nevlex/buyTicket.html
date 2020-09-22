@@ -46,6 +46,7 @@
           <legend>Ticket Information</legend>
           <label for="nameinput">Name</label>
           <input type="text" id="nameinput" name="name" required="required" />
+          <p id="validatename"></p>
           <label for="movieinput">Movie</label>
             <select name="movie" id="movieinput" required="required"
               onchange="processPaymentInfo();">
@@ -58,13 +59,17 @@
                   <option value="49.50">Zootopia ($49.50)</option>
                   <option value="29.50">Black Widow ($29.50)</option>
             </select>
+            <p id="validatemovie"></p>
           <label for="seatinput">Seat</label>
           <input type="text" id="seatinput" name="seat" required="required" />
           <input type="button" id="seatSelect" value="Select seat"/>
+          <p id="validateseat"></p>
           <label for="dateinput">Date</label>
           <input type="date" id="dateinput" name="date" required="required" />
+          <p id="validatedate"></p>
           <label for="timeinput">Time</label>
           <input type="time" id="timeinput" name="time" required="required" />
+          <p id="validatetime"></p>
         </fieldset>
 
         <fieldset id="paymentinfo">
@@ -82,10 +87,12 @@
           <div>
             <label for="ccnameinput" id="chname">Cardholder Name</label>
             <input type="text" id="ccnameinput" name="ccname" required="required" />
+            <p id="validateccname"></p>
           </div>
           <div class="offset">
             <label for="ccNum" id="cardNo">Card Number</label>
             <input id="ccNum" name="CardNumber" type="number" required="required" />
+            <p id="validateccNum"></p>
             <div id="ccNumErrorMessage"></div>
           </div>
           <div id="cards" class="inline">
@@ -117,6 +124,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
+              <p id="validateexpMo"></p>
               <label for="expYr" id="expYrLabel">Year</label>
               <select id="expYr" name="ExpYear" required="required">
                 <option value="0">--</option>
@@ -126,9 +134,11 @@
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
               </select>
+              <p id="validateexpYr"></p>
             </div>
             <label for="cvv">CVV</label>
             <input id="cvv" name="CVVValue" type="number" required="required" />
+            <p id="validatecvv"></p>
           </div>
         </fieldset>
         <fieldset id="previewbutton">
