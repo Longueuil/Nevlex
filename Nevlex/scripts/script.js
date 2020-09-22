@@ -1,8 +1,6 @@
 // THA-2/Payment Page
 // Author: Ihor Stashchuk
 
-// "use strict";
-
 var movieInfo = new Object();
 var movieSummary = document.getElementById("deliverTo");
 var paymentInfo = new Object();
@@ -12,8 +10,8 @@ var ccInfo = new Object();
 function processMovieInfo() {
     
     movieInfo.name = document.getElementById("nameinput").value;
-    // movieInfo.movie = document.getElementById("movieinput").value;
-    // movieInfo.seat = document.getElementById("seatinput").value;
+    movieInfo.movie = document.querySelector("select option:checked").innerText;
+    movieInfo.seat = document.getElementById("seatinput").value;
     movieInfo.date = document.getElementById("dateinput").value;
     movieInfo.time = document.getElementById("timeinput").value;
     
@@ -29,18 +27,17 @@ function processPaymentInfo() {
     let movie = document.getElementById("movieinput");
     let movieIndex = movie.selectedIndex;
     let stotal = movie.options[movieIndex].value;
-    document.getElementById("stotalinput").value =
-    stotal;
-    // window.alert(stotal);
-    // let stotal = parseFloat(document.getElementById('stotalinput').value);
+    document.getElementById("stotalinput").value = stotal;
     const TAX_RATE = 0.15;
     let tax = stotal * TAX_RATE;
     document.getElementById("taxinput").value = tax.toFixed(2);
+    let total = (parseFloat(stotal) + tax);
     document.getElementById("totalinput").value = total.toFixed(2);
+    
 
     paymentSummary.innerHTML += "<p><span>Subtotal</span>: $" + stotal + "</p>";
-    paymentSummary.innerHTML += "<p><span>Taxes</span>: $" + tax + "</p>";
-    paymentSummary.innerHTML += "<p><span>Total</span>: $" + total + "</p>";
+    paymentSummary.innerHTML += "<p><span>Taxes</span>: $" + tax.toFixed(2) + "</p>";
+    paymentSummary.innerHTML += "<p><span>Total</span>: $" + total.toFixed(2) + "</p>";
 }
 
 function selectCardType() {
@@ -89,13 +86,6 @@ function resultCloseParent(data) {
 }
 
 function createEventListeners() {
-    
-    // var tx = document.getElementById("taxinput");
-    // if(tx.addEventListener) {
-    //     taxinput.addEventListener("click", processPaymentInfo, false);
-    // } else if (form.attachEvent) {
-    //     tx.attachEvent("onclick", processPaymentInfo);
-    // }
 
     var btn = document.getElementById("previewBtn");
     if(btn.addEventListener) {
@@ -124,12 +114,118 @@ function createEventListeners() {
     } else if (seatSelectBtn.attachEvent) {
         seatSelectBtn.attachEvent("onclick", seatSelect);
     }
-
 }
-
 
 if (window.addEventListener) {
     window.addEventListener("load", createEventListeners, false);
 } else if (window.attachEvent) {
     window.attachEvent("onload", createEventListeners);
 }
+
+function validateForm() {
+
+    let selectedName = document.getElementById('nameinput');
+    let selectedMovie = document.getElementById('movieinput');
+    let selectedSeat = document.getElementById('seatinput');
+    let selectedDate = document.getElementById('dateinput');
+    let selectedTime = document.getElementById('timeinput');
+    let selectedCardHolder = document.getElementById('ccnameinput');
+    let selectedCardNumber = document.getElementById('ccNum');
+    let selectedExpMonth = document.getElementById('expMo');
+    let selectedExpYear = document.getElementById('expYr');
+    let selectedCVV = document.getElementById('cvv');
+
+    // validate name
+    if (selectedName.value == "" || !isNaN(selectedName)) {
+        window.alert('Fill in Name with non-numeric values');
+        selectedName.focus();
+        return false;
+    }
+    else
+    // validate movie
+    if (selectedMovie.selectedIndex == 0) {
+        window.alert('Select Movie');
+        selectedMovie.focus();
+        return false;
+    }
+    else 
+    // validate seat
+    if (selectedSeat.value === "") {
+        window.alert("Select Seat");
+        selectedSeat.focus();
+        return false;
+    }
+    else
+    // validate date
+    if (selectedDate.value == "") {
+        window.alert("Select Date");
+        selectedDate.focus();
+        return false;
+    }
+    else
+    // validate time
+    if (selectedTime.value == "") {
+        window.alert("Please select Time");
+        selectedTime.focus();
+        return false;
+    }
+    else
+    // validate card holder
+    if (selectedCardHolder.value == "" || !isNaN(selectedCardHolder.value)) {
+        window.alert("Fill in Cardholder Name with non-numeric values");
+        selectedCardHolder.focus();
+        return false;
+    }
+    else
+    // validate card number
+    if (selectedCardNumber.value == "") {
+        window.alert("Fill in Card Number");
+        selectedCardNumber.focus();
+        return false;
+    }
+    else
+    // validate expiration month
+    if (selectedExpMonth.selectedIndex == 0) {
+        window.alert("Please select Expiration Month");
+        selectedExpMonth.focus();
+        return false;
+    }
+    else
+    // validate expiration year
+    if (selectedExpYear.selectedIndex == 0) {
+        window.alert("Please select Expiration Year");
+        selectedExpYear.focus();
+        return false;
+    }
+    else
+    // validate CVV
+    if (selectedCVV.value == "") {
+        window.alert("Fill in CVV code");
+        selectedCVV.focus();
+        return false;
+    }
+    else {
+        return true;
+    }
+
+    // let fields = [
+    // document.getElementById('nameinput'),
+    // document.getElementById('movieinput'),
+    // document.getElementById('seatinput'),
+    // document.getElementById('dateinput'),
+    // document.getElementById('timeinput'),
+    // document.getElementById('ccnameinput'),
+    // document.getElementById('ccNum'),
+    // document.getElementById('expMo'),
+    // document.getElementById('expYr'),
+    // document.getElementById('cvv'),
+    // ]
+    
+    // for (let i = 0; i < 10; i++) {
+    //     if (fields[i] == "" || fields[i] == 0) {
+    //         window.alert("Please fill in missing information");
+    //         fields[i].focus();
+    //     }
+    // }
+    
+} // end function validateForm
