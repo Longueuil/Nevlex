@@ -47,7 +47,18 @@
           <label for="nameinput">Name</label>
           <input type="text" id="nameinput" name="name" required="required" />
           <label for="movieinput">Movie</label>
-          <input type="text" id="movieinput" name="movie" required="required" />
+          <!-- <input type="text" id="movieinput" name="movie" required="required" /> -->
+            <select name="movie" id="movieinput" required="required"
+              onchange="processPaymentInfo();">
+                  <option value="0">Select a Movie</option>
+                  <option value="19.95">Invasion ($19.95)</option>
+                  <option value="29.95">Tenet ($29.95)</option>
+                  <option value="79.95">Doctor House ($79.95)</option>
+                  <option value="49.50">Matrix ($49.50)</option>
+                  <option value="39.50">Rings ($39.50)</option>
+                  <option value="49.50">Zootopia ($49.50)</option>
+                  <option value="29.50">Black Widow ($29.50)</option>
+            </select>
           <label for="seatinput">Seat</label>
           <input type="text" id="seatinput" name="seat" required="required" />
           <input type="button" id="seatSelect" value="Select seat"/>
@@ -63,8 +74,8 @@
           <input type="text" id="stotalinput" name="stotal" required="required" />
           <label for="taxinput">Taxes</label>
           <input type="text" id="taxinput" name="tax" required="required" />
-          <label for="amountinput">Total</label>
-          <input type="text" id="amountinput" name="amount" required="required" />
+          <label for="totalinput">Total</label>
+          <input type="text" id="totalinput" name="total" required="required" />
         </fieldset>
 
         <!-- <fieldset id="orderinfo">

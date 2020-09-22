@@ -58,9 +58,9 @@ body {
                        -10px 0px 10px rgba(50, 50, 50, 1);
 }
 
-/*ol, ul {*/
+/* ol, ul {
    list-style: none;
-}
+} */
 
 /* page header */
 header {
@@ -150,18 +150,20 @@ fieldset fieldset legend {
    margin-top: 3px;
 }
 
-#movieinfo input {
+#movieinfo select {
    display: block;
    margin-left: 135px;
 }
 
 #nameinput, #movieinput, #dateinput, #timeinput {
    width: 400px;
+   display: block;
+   margin-left: 135px;
 }
 fieldset #seatinput {
    width: 299px;
    display: inline-block;
-   margin-left: 103px;
+   margin-left: 93px;
 }
 fieldset #seatSelect {
    display: inline-block;

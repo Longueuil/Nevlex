@@ -12,8 +12,8 @@ var ccInfo = new Object();
 function processMovieInfo() {
     
     movieInfo.name = document.getElementById("nameinput").value;
-    movieInfo.movie = document.getElementById("movieinput").value;
-    movieInfo.seat = document.getElementById("seatinput").value;
+    // movieInfo.movie = document.getElementById("movieinput").value;
+    // movieInfo.seat = document.getElementById("seatinput").value;
     movieInfo.date = document.getElementById("dateinput").value;
     movieInfo.time = document.getElementById("timeinput").value;
     
@@ -26,17 +26,21 @@ function processMovieInfo() {
 
 function processPaymentInfo() {
 
-    let stotal = parseFloat(document.getElementById('stotalinput').value);
+    let movie = document.getElementById("movieinput");
+    let movieIndex = movie.selectedIndex;
+    let stotal = movie.options[movieIndex].value;
+    document.getElementById("stotalinput").value =
+    stotal;
+    // window.alert(stotal);
+    // let stotal = parseFloat(document.getElementById('stotalinput').value);
     const TAX_RATE = 0.15;
     let tax = stotal * TAX_RATE;
-
-    document.getElementById('taxinput').value = tax.toFixed(2);
-    document.getElementById('amountinput').value = (stotal + tax).toFixed(2);
-    let amount = document.getElementById('amountinput').value;
+    document.getElementById("taxinput").value = tax.toFixed(2);
+    document.getElementById("totalinput").value = total.toFixed(2);
 
     paymentSummary.innerHTML += "<p><span>Subtotal</span>: $" + stotal + "</p>";
     paymentSummary.innerHTML += "<p><span>Taxes</span>: $" + tax + "</p>";
-    paymentSummary.innerHTML += "<p><span>Total</span>: $" + amount + "</p>";
+    paymentSummary.innerHTML += "<p><span>Total</span>: $" + total + "</p>";
 }
 
 function selectCardType() {
@@ -85,19 +89,19 @@ function resultCloseParent(data) {
 }
 
 function createEventListeners() {
-
+    
     var tx = document.getElementById("taxinput");
     if(tx.addEventListener) {
         taxinput.addEventListener("click", processPaymentInfo, false);
     } else if (form.attachEvent) {
-        tx.attachEvent("onclick", processPaymentInfo,);
+        tx.attachEvent("onclick", processPaymentInfo);
     }
 
     var btn = document.getElementById("previewBtn");
     if(btn.addEventListener) {
         previewBtn.addEventListener("click", previewOrder, false);
     } else if (form.attachEvent) {
-        btn.attachEvent("onclick", previewOrder,);
+        btn.attachEvent("onclick", previewOrder);
     }
 
     var cardNum = document.getElementById("ccNum");
@@ -111,14 +115,14 @@ function createEventListeners() {
     if(confirm.addEventListener) {
         confirmBtn.addEventListener("click", confirmOrder, false);
     } else if (confirmBtn.attachEvent) {
-        confirm.attachEvent("onclick", confirmOrder,);
+        confirm.attachEvent("onclick", confirmOrder);
     }
 
     var seatSelectBtn = document.getElementById("seatSelect");
     if(seatSelectBtn.addEventListener) {
         seatSelectBtn.addEventListener("click", seatSelect, false);
     } else if (seatSelectBtn.attachEvent) {
-        seatSelectBtn.attachEvent("onclick", seatSelect,);
+        seatSelectBtn.attachEvent("onclick", seatSelect);
     }
 
 }
