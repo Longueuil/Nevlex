@@ -191,6 +191,8 @@ fieldset #seatSelect {
    width: 400px;
    background-color:  #49505738;
    border: none;
+   margin-bottom: 5px;
+   border-radius: 10px;
    
 }
 
