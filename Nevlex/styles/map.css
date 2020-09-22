@@ -1,4 +1,7 @@
-
+#seatImg {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
 #closeSeatSelect {
     position: absolute;
     top: 500px;
