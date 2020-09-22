@@ -47,15 +47,15 @@ body {
    background: white;
    margin: 0 auto;
    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-   -webkit-box-shadow: 10px 0px 10px rgba(50, 50, 50, 1),
-                       0px 10px 10px rgba(50, 50, 50, 1),
-                       -10px 0px 10px rgba(50, 50, 50, 1);
-   -moz-box-shadow:    10px 0px 10px rgba(50, 50, 50, 1),
-                       0px 10px 10px rgba(50, 50, 50, 1),
-                       -10px 0px 10px rgba(50, 50, 50, 1);
-   box-shadow:         10px 0px 10px rgba(50, 50, 50, 1),
-                       0px 10px 10px rgba(50, 50, 50, 1),
-                       -10px 0px 10px rgba(50, 50, 50, 1);
+   /*-webkit-box-shadow: 10px 0px 10px rgba(50, 50, 50, 1),*/
+   /*                    0px 10px 10px rgba(50, 50, 50, 1),*/
+   /*                    -10px 0px 10px rgba(50, 50, 50, 1);*/
+   /*-moz-box-shadow:    10px 0px 10px rgba(50, 50, 50, 1),*/
+   /*                    0px 10px 10px rgba(50, 50, 50, 1),*/
+   /*                    -10px 0px 10px rgba(50, 50, 50, 1);*/
+   /*box-shadow:         10px 0px 10px rgba(50, 50, 50, 1),*/
+   /*                    0px 10px 10px rgba(50, 50, 50, 1),*/
+   /*                    -10px 0px 10px rgba(50, 50, 50, 1);*/
 }
 
 /* ol, ul {
@@ -67,7 +67,7 @@ header {
    background: #04819E;
    width: 100%;
    color: #FFFFFF;
-   font-size: 48px;
+   /*font-size: 48px;*/
    text-align: center;
    line-height: 1.5em;
    border-bottom: 1px solid black;
@@ -75,12 +75,10 @@ header {
 
 /* main content */
 article {
-   position: absolute;
-   top: 80px;
    width: 960px;
    text-align: left;
-   background: ivory;
    padding: 20px;
+   padding-top: 80px;
    overflow: auto;
 }
 
@@ -112,10 +110,10 @@ form {
 }
 
 fieldset {
-   margin-bottom: 10px;
    position: relative;
    padding: 2.5em 1em 0.5em 1em;
-   background: #e3d5ba;
+   background: #49505738;
+   border-radius: 10px;
 }
 
 fieldset fieldset {
@@ -202,15 +200,18 @@ section {
    float: right;
    width: 33.3333%;
    background: white;
-   border: 3px solid #04819E;
+   border: 3px solid #545b62;
    margin-top: 10px;
    display: none;
+   border-radius: 10px;
+   padding: 5px;
 }
 
 section h2 {
    width: 100%;
-   background: #e3d5ba;
+   background: #d8dadb;
    padding: 5px;
+   border-radius: 10px;
 }
 
 section div {
@@ -238,4 +239,7 @@ h3 {
    font-size: 1.25em;
    margin-top: 0.5em;
    margin-left: 0.5em;
+}
+input #confirmBtn {
+   border-radius: 10px;
 }
