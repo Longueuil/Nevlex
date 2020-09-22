@@ -158,15 +158,21 @@ fieldset fieldset legend {
    width: 400px;
    display: block;
    margin-left: 135px;
+   margin-bottom: 5px;
+   border: none;
+   border-radius: 10px;
 }
 fieldset #seatinput {
    width: 299px;
    display: inline-block;
-   margin-left: 93px;
+   margin-left: 101px;
+   margin-bottom: 5px;
+   border-radius: 10px;
 }
 fieldset #seatSelect {
    display: inline-block;
    margin-left: 0;
+   border-radius: 10px;
 }
 
 #paymentinfo label {
@@ -181,13 +187,21 @@ fieldset #seatSelect {
    margin-left: 135px;
 }
 
-#stotalinput, #taxinput, #amountinput {
+#stotalinput, #taxinput, #totalinput {
    width: 400px;
+   background-color:  #49505738;
+   border: none;
+   
 }
 
 #ccnameinput, #ccNum, #cvv {
    display: block;
    width: 400px;
+   border-radius: 10px;
+}
+
+#expMo, #expYr {
+   border-radius: 10px;
 }
 
 #previewbutton {
@@ -195,6 +209,10 @@ fieldset #seatSelect {
    border: none;
    padding: 0.5em 0 0 0;
    text-align: center;
+}
+
+#previewBtn {
+   border-radius: 10px;
 }
 
 section {
@@ -241,6 +259,14 @@ h3 {
    margin-top: 0.5em;
    margin-left: 0.5em;
 }
-input #confirmBtn {
+
+#confirmbutton {
+   background: inherit;
+   border: none;
+   padding: 0.5em 0 0 0;
+   text-align: center;
+}
+
+#confirmBtn {
    border-radius: 10px;
 }
