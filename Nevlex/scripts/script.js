@@ -1,22 +1,24 @@
 // THA-2/Payment Page
 // Author: Ihor Stashchuk
-
-var movieInfo = new Object();
+'use strict'
+var movieInfo = {};
 var movieSummary = document.getElementById("deliverTo");
-var paymentInfo = new Object();
+var paymentInfo = {};
 var paymentSummary = document.getElementById("order");
-var ccInfo = new Object();
+var ccInfo = {}
+
 
 function processMovieInfo() {
-    
+    movieSummary.innerHTML = "";
+    document.getElementById("deliverTo").innerHTML = "";
     movieInfo.name = document.getElementById("nameinput").value;
     movieInfo.movie = document.querySelector("select option:checked").innerText;
     movieInfo.seat = document.getElementById("seatinput").value;
     movieInfo.date = document.getElementById("dateinput").value;
     movieInfo.time = document.getElementById("timeinput").value;
-    
+    movieSummary = document.getElementById("deliverTo");
     movieSummary.innerHTML += "<p><span>Name</span>: " + movieInfo.name + "</p>";
-    movieSummary.innerHTML += "<p><span>Movie</span>: " + movieInfo.movie + "</p>";
+    movieSummary.innerHTML += "<p #movieId><span>Movie</span>: " + movieInfo.movie + "</p>";
     movieSummary.innerHTML += "<p><span>Seat</span>: " + movieInfo.seat + "</p>";
     movieSummary.innerHTML += "<p><span>Date</span>: " + movieInfo.date + "</p>";
     movieSummary.innerHTML += "<p><span>Time</span>: " + movieInfo.time + "</p>";
@@ -33,11 +35,14 @@ function processPaymentInfo() {
     document.getElementById("taxinput").value = tax.toFixed(2);
     let total = (parseFloat(stotal) + tax);
     document.getElementById("totalinput").value = total.toFixed(2);
-    
 
+    paymentSummary.innerHTML = "";
+    document.getElementById("order").innerText = "";
+    paymentSummary = document.getElementById("order");
     paymentSummary.innerHTML += "<p><span>Subtotal</span>: $" + stotal + "</p>";
     paymentSummary.innerHTML += "<p><span>Taxes</span>: $" + tax.toFixed(2) + "</p>";
     paymentSummary.innerHTML += "<p><span>Total</span>: $" + total.toFixed(2) + "</p>";
+    processMovieInfo()
 }
 
 function selectCardType() {
@@ -62,12 +67,14 @@ function selectCardType() {
 }
 
 function previewOrder() {
-    processMovieInfo();
-    movieSummary = {};
-    paymentSummary = {};
-    document.getElementsByTagName("section")[0].style.display = "block"; 
-    document.getElementById("deliverTo").style.display = "block";
-    document.getElementById("order").style.display = "block";
+    if(validateForm()) {
+        processMovieInfo();
+            movieSummary = {};
+            paymentSummary = {};
+        document.getElementsByTagName("section")[0].style.display = "block";
+        document.getElementById("deliverTo").style.display = "block";
+        document.getElementById("order").style.display = "block";
+    }
 }
 
 function confirmOrder() {
@@ -91,8 +98,8 @@ function createEventListeners() {
 
     var btn = document.getElementById("previewBtn");
     if(btn.addEventListener) {
-        previewBtn.addEventListener("click", previewOrder, false);
-    } else if (form.attachEvent) {
+        btn.addEventListener("click", previewOrder, false);
+    } else if (btn.attachEvent) {
         btn.attachEvent("onclick", previewOrder);
     }
 
@@ -125,7 +132,6 @@ if (window.addEventListener) {
 }
 
 /* ---------------FORM VALIDATIONS--------------- */
-
 function validateForm() {
 
     let selectedName = document.getElementById("nameinput");
@@ -156,63 +162,83 @@ function validateForm() {
         selectedName.focus();
         return false;
     }
-    else
+    else{
+        nameInputError.innerHTML = "";
+    }
     // validate movie
     if (selectedMovie.selectedIndex == 0) {
         movieSelectError.innerHTML = "<p><span>Select Movie</span></p>";
         selectedMovie.focus();
         return false;
     }
-    else 
+    else{
+        movieSelectError.innerHTML = "";
+    }
+
     // validate seat
     if (selectedSeat.value == "") {
         seatSelectError.innerHTML = "<p><span>Select Seat</span></p>";
         selectedSeat.focus();
         return false;
     }
-    else
+    else{
+        seatSelectError.innerHTML ="";
+    }
     // validate date
     if (selectedDate.value == "") {
         dateSelectError.innerHTML = "<p><span>Select Date</span></p>";
         selectedDate.focus();
         return false;
     }
-    else
+    else{
+        dateSelectError.innerHTML ="";
+    }
     // validate time
     if (selectedTime.value == "") {
         timeSelectError.innerHTML = "<p><span>Select Time</span></p>";
         selectedTime.focus();
         return false;
     }
-    else
+    else{
+        timeSelectError.innerHTML ="";
+    }
     // validate card holder
     if (selectedCardHolder.value == "" || !isNaN(selectedCardHolder.value)) {
         ccNameInputError.innerHTML = "<p><span>Fill in Cardholder Name with non-numeric values</span></p>";
         selectedCardHolder.focus();
         return false;
     }
-    else
+    else{
+        ccNameInputError.innerHTML ="";
+    }
     // validate card number
     if (selectedCardNumber.value == "") {
         ccNumInputError.innerHTML = "<p><span>Fill in Card Number</span></p>";
         selectedCardNumber.focus();
         return false;
     }
-    else
+    else{
+        ccNumInputError.innerHTML ="";
+    }
     // validate expiration month
     if (selectedExpMonth.selectedIndex == 0) {
         expMoSelectError.innerHTML = "<p><span>Select Expiration Month</span></p>";
         selectedExpMonth.focus();
         return false;
     }
-    else
+    else{
+        expMoSelectError.innerHTML ="";
+    }
     // validate expiration year
     if (selectedExpYear.selectedIndex == 0) {
         expYrSelectError.innerHTML = "<p><span>Select Expiration Year</span></p>";
         selectedExpYear.focus();
         return false;
     }
-    else
+    else{
+        expYrSelectError.innerHTML = "";
+    }
+
     // validate CVV
     if (selectedCVV.value == "") {
         cvvInputError.innerHTML = "<p><span>Fill in CVV code</span></p>";
@@ -220,6 +246,7 @@ function validateForm() {
         return false;
     }
     else {
+        cvvInputError.innerHTML = "";
         return true;
     }
     

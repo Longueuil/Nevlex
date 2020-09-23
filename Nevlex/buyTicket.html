@@ -4,7 +4,7 @@
     <link rel="icon" href="Images/film_icon.png">
     <title>Pay Movie Ticket</title>
     <!-- Bootstrap core CSS -->
-    <link href="Bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="./Bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/nevlex.css" />
@@ -39,14 +39,13 @@
     </header>
     <article>
       <h2 hidden>Ticket Details</h2>
-      <form name="movieform" id="mform" method="POST" novalidate 
-      onsubmit="return validateForm();">
+      <form name="movieform" id="mform" method="POST" novalidate>
 
         <fieldset id="movieinfo">
           <legend>Ticket Information</legend>
           <label for="nameinput">Name</label>
           <input type="text" id="nameinput" name="name" required="required" />
-        <!--   <p id="validatename"></p>--> 
+          <p id="validatename"></p>
           <label for="movieinput">Movie</label>
             <select name="movie" id="movieinput" required="required"
               onchange="processPaymentInfo();">
@@ -142,7 +141,7 @@
           </div>
         </fieldset>
         <fieldset id="previewbutton">
-          <input type="submit" id="previewBtn" value="Preview Purchase" />
+          <input type="button" id="previewBtn" value="Preview Purchase" />
         </fieldset>
       </form>
       <section>

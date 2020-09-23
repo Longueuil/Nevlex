@@ -68,7 +68,7 @@ header {
    width: 100%;
    color: #FFFFFF;
    /*font-size: 48px;*/
-   text-align: center;
+   text-align: left;
    line-height: 1.5em;
    border-bottom: 1px solid black;
 }
