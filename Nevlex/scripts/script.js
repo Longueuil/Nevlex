@@ -5,18 +5,20 @@ var movieInfo = {};
 var movieSummary = document.getElementById("deliverTo");
 var paymentInfo = {};
 var paymentSummary = document.getElementById("order");
-var ccInfo = {};
+var ccInfo = {}
+
 
 function processMovieInfo() {
-    
+    movieSummary.innerHTML = "";
+    document.getElementById("deliverTo").innerHTML = "";
     movieInfo.name = document.getElementById("nameinput").value;
     movieInfo.movie = document.querySelector("select option:checked").innerText;
     movieInfo.seat = document.getElementById("seatinput").value;
     movieInfo.date = document.getElementById("dateinput").value;
     movieInfo.time = document.getElementById("timeinput").value;
-    
+    movieSummary = document.getElementById("deliverTo");
     movieSummary.innerHTML += "<p><span>Name</span>: " + movieInfo.name + "</p>";
-    movieSummary.innerHTML += "<p><span>Movie</span>: " + movieInfo.movie + "</p>";
+    movieSummary.innerHTML += "<p #movieId><span>Movie</span>: " + movieInfo.movie + "</p>";
     movieSummary.innerHTML += "<p><span>Seat</span>: " + movieInfo.seat + "</p>";
     movieSummary.innerHTML += "<p><span>Date</span>: " + movieInfo.date + "</p>";
     movieSummary.innerHTML += "<p><span>Time</span>: " + movieInfo.time + "</p>";
@@ -33,11 +35,14 @@ function processPaymentInfo() {
     document.getElementById("taxinput").value = tax.toFixed(2);
     let total = (parseFloat(stotal) + tax);
     document.getElementById("totalinput").value = total.toFixed(2);
-    
 
+    paymentSummary.innerHTML = "";
+    document.getElementById("order").innerText = "";
+    paymentSummary = document.getElementById("order");
     paymentSummary.innerHTML += "<p><span>Subtotal</span>: $" + stotal + "</p>";
     paymentSummary.innerHTML += "<p><span>Taxes</span>: $" + tax.toFixed(2) + "</p>";
     paymentSummary.innerHTML += "<p><span>Total</span>: $" + total.toFixed(2) + "</p>";
+    processMovieInfo()
 }
 
 function selectCardType() {
@@ -64,8 +69,8 @@ function selectCardType() {
 function previewOrder() {
     if(validateForm()) {
         processMovieInfo();
-        movieSummary = {};
-        paymentSummary = {};
+            movieSummary = {};
+            paymentSummary = {};
         document.getElementsByTagName("section")[0].style.display = "block";
         document.getElementById("deliverTo").style.display = "block";
         document.getElementById("order").style.display = "block";
