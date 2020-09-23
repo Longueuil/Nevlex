@@ -158,6 +158,7 @@ function validateForm() {
         return false;
     }
     else{
+        nameInputError.innerHTML = "";
     }
     // validate movie
     if (selectedMovie.selectedIndex == 0) {
