@@ -128,25 +128,25 @@ if (window.addEventListener) {
 
 function validateForm() {
 
-    let selectedName = document.getElementById('nameinput');
+    let selectedName = document.getElementById("nameinput");
     let nameInputError = document.getElementById("validatename");
-    let selectedMovie = document.getElementById('movieinput');
+    let selectedMovie = document.getElementById("movieinput");
     let movieSelectError = document.getElementById("validatemovie");
-    let selectedSeat = document.getElementById('seatinput');
+    let selectedSeat = document.getElementById("seatinput");
     let seatSelectError = document.getElementById("validateseat");
-    let selectedDate = document.getElementById('dateinput');
+    let selectedDate = document.getElementById("dateinput");
     let dateSelectError = document.getElementById("validatedate");
-    let selectedTime = document.getElementById('timeinput');
+    let selectedTime = document.getElementById("timeinput");
     let timeSelectError = document.getElementById("validatetime");
-    let selectedCardHolder = document.getElementById('ccnameinput');
+    let selectedCardHolder = document.getElementById("ccnameinput");
     let ccNameInputError = document.getElementById("validateccname");
-    let selectedCardNumber = document.getElementById('ccNum');
+    let selectedCardNumber = document.getElementById("ccNum");
     let ccNumInputError = document.getElementById("validateccNum");
-    let selectedExpMonth = document.getElementById('expMo');
+    let selectedExpMonth = document.getElementById("expMo");
     let expMoSelectError = document.getElementById("validateexpMo");
-    let selectedExpYear = document.getElementById('expYr');
+    let selectedExpYear = document.getElementById("expYr");
     let expYrSelectError = document.getElementById("validateexpYr");
-    let selectedCVV = document.getElementById('cvv');
+    let selectedCVV = document.getElementById("cvv");
     let cvvInputError = document.getElementById("validatecvv");
     
 
